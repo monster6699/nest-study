@@ -5,6 +5,7 @@ export class AppService {
   constructor(
     @Inject('appName') private appName: string,
     @Inject('configService') private configService,
+    @Inject('userService') private userService,
   ) {}
   getHello(): string {
     return 'Hello World!';
@@ -16,5 +17,9 @@ export class AppService {
 
   getConfigEnv(): any {
     return this.configService.getEnv();
+  }
+
+  getUserEnv(): string {
+    return this.userService.getUserEnv();
   }
 }

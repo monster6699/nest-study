@@ -26,4 +26,9 @@ export class AppController {
     console.log(request);
     return 'req';
   }
+
+  @Get('user')
+  getUser(): string {
+    return this.appService.getUserEnv();
+  }
 }
