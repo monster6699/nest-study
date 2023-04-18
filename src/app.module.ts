@@ -10,6 +10,9 @@ import { RoleModule } from './role/role.module';
 import { ArticleModule } from './article/article.module';
 
 config({ path: join(__dirname, '../.env') });
+BigInt.prototype['toJSON'] = function () {
+  return this.toString();
+};
 console.log(process.env.NODE_ENV);
 const ConfigServices = {
   provide: 'configService',

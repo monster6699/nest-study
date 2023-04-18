@@ -1,4 +1,4 @@
-import { Controller, Get, Req } from '@nestjs/common';
+import { Controller, Get, Param, Query, Req, UsePipes } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Request } from 'express';
 
@@ -27,8 +27,9 @@ export class AppController {
     return 'req';
   }
 
-  @Get('user')
-  getUser(): string {
+  @Get('user/:id')
+  getUser(@Param('id') id: number): string {
+    console.log(id);
     return this.appService.getUserEnv();
   }
 }
