@@ -8,7 +8,7 @@ import { DevService } from './dev.service';
 import { UserService } from './user.service';
 import { RoleModule } from './role/role.module';
 import { ArticleModule } from './article/article.module';
-
+import { ValidateUserModule } from './validate-user/validate-user.module';
 config({ path: join(__dirname, '../.env') });
 BigInt.prototype['toJSON'] = function () {
   return this.toString();
@@ -19,7 +19,7 @@ const ConfigServices = {
   useClass: process.env.NODE_ENV === 'production' ? ProdService : DevService,
 };
 @Module({
-  imports: [RoleModule, ArticleModule.register('register......')],
+  imports: [RoleModule, ArticleModule.register('register......'), ValidateUserModule],
   controllers: [AppController],
   providers: [
     AppService,
